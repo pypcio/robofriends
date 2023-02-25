@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import CardList from "./CardList";
+import { robots } from "./Robots";
+import BrowseFriend from "./BrowseFriend";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      robots: robots,
+      searchFriend: "",
+    };
+  }
+  findFriend = (event) => {
+    this.setState({ searchFriend: event.target.value });
+  };
+  render() {
+    const serched = this.state.robots.filter((robot) => {
+      return robot.name
+        .toLowerCase()
+        .includes(this.state.searchFriend.toLowerCase());
+    });
+    return (
+      <React.Fragment>
+        <h1>RoboFriends</h1>
+        <BrowseFriend search={this.findFriend} />
+        <CardList robots={serched} />
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
