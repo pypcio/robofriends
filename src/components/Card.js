@@ -8,9 +8,8 @@ const Card = ({ robots, index }) => {
           alt="robo-friend"
           src={`https://robohash.org/${robots.id}?size=200x200`}
         />
-        <h2>{robots.name}</h2>
-        <h3> {robots.username}</h3>
-        <h4> {robots.email}</h4>
+        <h3>{robots.name}</h3>
+        <p> {robots.email}</p>
       </div>
     </React.Fragment>
   );

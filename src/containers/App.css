@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Roxyvpn";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Roxyvp"), url("./fonts/RoxyvpRegular-3zxW6.woff2");
+}
+h1 {
+  font-family: "Roxyvpn";
+  font-weight: 100;
+  font-size: 4em;
+  color: #0ccac4;
+}
